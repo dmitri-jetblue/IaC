@@ -1,0 +1,10 @@
+---
+hostname: RouterB
+
+interfaces:
+  GigabitEthernet0/0:
+    enabled: false
+  GigabitEthernet0/1:
+    enabled: false
+  GigabitEthernet0/2:
+    enabled: false
