@@ -10,7 +10,13 @@ interface GigabitEthernet0/0
  no shutdown
 
 interface GigabitEthernet0/1
- shutdown
+ description AppB
+ ip address 192.168.20.2 255.255.255.0
+ standby version 2
+ standby 20 ip 192.168.20.1
+ standby 20 priority 110
+ standby 20 preempt
+ no shutdown
 
 interface GigabitEthernet0/2
  shutdown
