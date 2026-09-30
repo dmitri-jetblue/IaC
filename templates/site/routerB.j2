@@ -1,0 +1,23 @@
+hostname {{ device.hostname }}
+!
+{% for interface_name, data in device.interfaces.items() %}
+interface {{ interface_name }}
+{% if data.description is defined %}
+ description {{ data.description }}
+{% endif %}
+{% if data.enabled %}
+{% if data.ip_address is defined %}
+ ip address {{ data.ip_address }} {{ data.subnet_mask }}
+{% endif %}
+{% if data.hsrp is defined %}
+ standby version 2
+ standby {{ data.hsrp.group }} ip {{ data.hsrp.virtual_ip }}
+ standby {{ data.hsrp.group }} priority 100
+ standby {{ data.hsrp.group }} preempt
+{% endif %}
+ no shutdown
+{% else %}
+ shutdown
+{% endif %}
+!
+{% endfor %}
