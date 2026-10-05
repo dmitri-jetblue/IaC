@@ -1,9 +1,15 @@
 ---
-hostname: siteA.routerA
+hostname: siteB.routerA
 
 interfaces:
   GigabitEthernet0/0:
-    enabled: false
+    enabled: true
+    description: AppA
+    ip_address: 192.168.100.2
+    subnet_mask: 255.255.255.0
+    hsrp:
+      group: 100
+      virtual_ip: 192.168.100.1
   GigabitEthernet0/1:
     enabled: false
   GigabitEthernet0/2:
