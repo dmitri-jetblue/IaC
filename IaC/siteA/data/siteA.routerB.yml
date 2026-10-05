@@ -11,6 +11,12 @@ interfaces:
       group: 10
       virtual_ip: 192.168.10.1
   GigabitEthernet0/1:
-    enabled: false
+    enabled: true
+    description: AppB
+    ip_address: 192.168.20.3
+    subnet_mask: 255.255.255.0
+    hsrp:
+      group: 20
+      virtual_ip: 192.168.20.1
   GigabitEthernet0/2:
     enabled: false
